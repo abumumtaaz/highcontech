@@ -425,9 +425,9 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Services.cshtml" />
     <None Include="Views\Home\ErrorPage.cshtml" />
-    <None Include="Views\Home\Products.cshtml" />
+    <Content Include="Views\Home\Products.cshtml" />
     <None Include="Views\Home\Training2015.cshtml" />
-    <None Include="Views\Training\Lau2015.cshtml" />
+    <Content Include="Views\Training\Lau2015.cshtml" />
     <None Include="Views\Training\_CoursesPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>

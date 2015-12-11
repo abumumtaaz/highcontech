@@ -28,21 +28,21 @@ namespace TestingGear.Controllers
         {
             try
             {
-                //var from = ConfigurationManager.AppSettings.Get("UserID");
-                //using (var email = new MailMessage(from, "yusuf.oguntola@gmail.com"))
-                //{
-                //    email.Subject = "Training Reg";
-                //    const string extra = "An application for the training has been submitted from Highcontech.com. \nRegistration Details: \n\n";
-                //    email.Body =
-                //        string.Format(
-                //            "{0}Full Name: {1}\nPhone: {2}\nEmail: {3}\nAddress: {4}\nCourses: {5}",
-                //            extra, name, phone, mail, address, courses);
-                //    email.IsBodyHtml = false;
-                //    var smtp = new SmtpClient();
-                //    await smtp.SendMailAsync(email);
-                //    ViewBag.Status = "SUCCESS";
-                //    ViewBag.StatusMessage = "Message successfully sent";
-                //}
+                var from = ConfigurationManager.AppSettings.Get("UserID");
+                using (var email = new MailMessage(from, "yusuf.oguntola@gmail.com"))
+                {
+                    email.Subject = "Training Reg";
+                    const string extra = "An application for the training has been submitted from Highcontech.com. \nRegistration Details: \n\n";
+                    email.Body =
+                        string.Format(
+                            "{0}Full Name: {1}\nPhone: {2}\nEmail: {3}\nAddress: {4}\nCourses: {5}",
+                            extra, name, phone, mail, address, courses);
+                    email.IsBodyHtml = false;
+                    var smtp = new SmtpClient();
+                    await smtp.SendMailAsync(email);
+                    ViewBag.Status = "SUCCESS";
+                    ViewBag.StatusMessage = "Message successfully sent";
+                }
             }
             catch (Exception)
             {
