@@ -24,7 +24,7 @@ namespace TestingGear.Controllers
 
         [HttpPost]
         public async Task<ActionResult> Lau2015(string name, string mail, string phone, string address,
-            string courses)
+            string courses, string date)
         {
             try
             {
@@ -35,8 +35,8 @@ namespace TestingGear.Controllers
                     const string extra = "An application for the training has been submitted from Highcontech.com. \nRegistration Details: \n\n";
                     email.Body =
                         string.Format(
-                            "{0}Full Name: {1}\nPhone: {2}\nEmail: {3}\nAddress: {4}\nCourses: {5}",
-                            extra, name, phone, mail, address, courses);
+                            "{0}Full Name: {1}\nPhone: {2}\nEmail: {3}\nAddress: {4}\nCourses: {5}\nDate:{6}",
+                            extra, name, phone, mail, address, courses, date);
                     email.IsBodyHtml = false;
                     var smtp = new SmtpClient();
                     await smtp.SendMailAsync(email);
