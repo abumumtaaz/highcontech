@@ -46,27 +46,19 @@ namespace TestingGear.Controllers
                     var smtp = new SmtpClient();
                     await smtp.SendMailAsync(email);
 
-                    
-                    var email2 = new MailMessage("highcontech@gmail.com", uEmail);
-                    var smtp2 = new SmtpClient
+
+                    var email2 = new MailMessage("highcontech@gmail.com", uEmail)
                     {
-                        Host = "smtp.gmail.com",
-                        EnableSsl = true
+                        Subject = "Highcon Technologies",
+                        Body = "Thank you for contacting us at Highcon Technologies.\n" +
+                               "We have received your request and I want to asure you that necessary " +
+                               "actions would be taken as fast as possible, so you may not need to " +
+                               "resend this.\nYou would be contacted if need be as soon as possible.\nThank You.\n\n-------------" +
+                               "\nBest Regards;\nHighconTech team.",
+                        IsBodyHtml = false
                     };
 
-                    var highconPassword = ConfigurationManager.AppSettings.Get("HighconPassword");
-                    var networkCredential2 = new NetworkCredential("highcontech@gmail.com", highconPassword);
-                    smtp2.Credentials = networkCredential2;
-                    smtp2.Port = 587;
-                    email2.Subject = "Highcon Technologies";
-                    email2.Body =
-                        "Thank you for contacting us at Highcon Technologies.\n" +
-                        "We have received your request and I want to asure you that necessary " +
-                        "actions would be taken as fast as possible, so you may not need to " +
-                        "resend this.\nYou would be contacted if need be as soon as possible.\nThank You.\n\n-------------" +
-                        "\nBest Regards;\nHighconTech team.";
-                    email2.IsBodyHtml = false;
-                    await smtp2.SendMailAsync(email2);
+                    await smtp.SendMailAsync(email2);
 
                     ViewBag.Status = "SUCCESS";
                     ViewBag.StatusMessage = "Message successfully sent";
