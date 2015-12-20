@@ -46,18 +46,18 @@ namespace TestingGear.Controllers
                     var smtp = new SmtpClient();
                     await smtp.SendMailAsync(email);
                 }
-                using (var email2 = new MailMessage("highcontech@gmail.com", uEmail))
-                {
-                    email2.Subject = "Highcon Technologies";
-                    email2.Body = "Thank you for contacting us at Highcon Technologies.\n" +
-                           "We have received your request and I want to asure you that necessary " +
-                           "actions would be taken as fast as possible, so you may not need to " +
-                           "resend this.\nYou would be contacted if need be as soon as possible.\nThank You.\n\n-------------" +
-                           "\nBest Regards;\nHighconTech team.";
-                    email2.IsBodyHtml = false;
-                    var smtp = new SmtpClient();
-                    await smtp.SendMailAsync(email2);
-                }
+                //using (var email2 = new MailMessage("highcontech@gmail.com", uEmail))
+                //{
+                //    email2.Subject = "Highcon Technologies";
+                //    email2.Body = "Thank you for contacting us at Highcon Technologies.\n" +
+                //           "We have received your request and I want to asure you that necessary " +
+                //           "actions would be taken as fast as possible, so you may not need to " +
+                //           "resend this.\nYou would be contacted if need be as soon as possible.\nThank You.\n\n-------------" +
+                //           "\nBest Regards;\nHighconTech team.";
+                //    email2.IsBodyHtml = false;
+                //    var smtp = new SmtpClient();
+                //    await smtp.SendMailAsync(email2);
+                //}
 
                 ViewBag.Status = "SUCCESS";
                 ViewBag.StatusMessage = "Message successfully sent";
