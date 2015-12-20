@@ -12,8 +12,8 @@
         <div class="breadcrumb-container">
             <div class="container">
                 <ol class="breadcrumb">
-                    <li><i class="fa fa-home pr-10"></i><a class="link-dark" href="index.html">Home</a></li>
-                    <li class="active">Page Services</li>
+                    <li><i class="fa fa-home pr-10"></i><a class="link-dark" href="/Home/Index">Home</a></li>
+                    <li class="active">LAUTECH 2015</li>
                 </ol>
             </div>
         </div>
@@ -24,7 +24,7 @@
                     <h2 class="title object-non-visible" data-animation-effect="fadeIn" data-effect-delay="100">What We <strong>are offering</strong></h2>
                     <div class="separator object-non-visible mt-10" data-animation-effect="fadeIn" data-effect-delay="100"></div>
                     <p class="text-center object-non-visible" data-animation-effect="fadeIn" data-effect-delay="100">
-                        The mind-blowing oppotunity you have hoped for! You couldn't have been more flabbergasted!
+                        The mind-blowing opportunity you have hoped for! You couldn't have been more flabbergasted!
                         We are offering the hottest courses at the most astonishing fee and they would still be taught to the atomic stage by professionals
                         who have been using each of the specified technologies for years.
                         Nothing teaches better than experience.
@@ -191,12 +191,12 @@
                     </div>
                 </div>
                 <div class="row col-sm-8 col-sm-offset-2 white-bg">
-                    @using (Html.BeginForm("Lau2015", "Training", FormMethod.Post, new { enctype = "multipart/form-data", id="regForm" }))
+                    @using (Html.BeginForm("Lau2015", "Training", FormMethod.Post, new { enctype = "multipart/form-data", id = "regForm" }))
                     {
                         <div class="form-group">
                             <label for="name" class="col-sm-2 control-label text-default">Full Name</label>
                             <div class="col-sm-10">
-                                <input class="form-control" id="name" name="name" placeholder="Full Name" type="text">
+                                <input class="form-control" id="name" name="name" placeholder="Full Name" type="text" required="required">
                             </div>
                             <br />
                         </div>
@@ -204,7 +204,7 @@
                         <div class="form-group">
                             <label for="phone" class="col-sm-2 control-label text-default">Phone Number</label>
                             <div class="col-sm-10">
-                                <input class="form-control" name="phone" id="phone" placeholder="Phone" type="text">
+                                <input class="form-control" name="phone" id="phone" placeholder="Phone" type="text" required="required">
                             </div>
                             <br />
                         </div>
@@ -212,7 +212,7 @@
                         <div class="form-group">
                             <label for="email" class="col-sm-2 control-label text-default">Email</label>
                             <div class="col-sm-10">
-                                <input class="form-control" name="mail" id="email" placeholder="Email" type="email">
+                                <input class="form-control" name="mail" id="email" placeholder="Email" type="email" required="required">
                             </div>
                             <br />
                         </div>
@@ -220,29 +220,16 @@
                         <div class="form-group">
                             <label for="address" class="col-sm-2 control-label text-default">Address</label>
                             <div class="col-sm-10">
-                                <input class="form-control" placeholder="Address" type="text" id="address" name="address">
+                                <input class="form-control" placeholder="Address" type="text" id="address" name="address" required="required">
                             </div>
                             <br />
                         </div>
                         <br />
-                        @*<div class="form-group">
-                            <label for="category" class="col-sm-2 control-label text-default">Category</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" id="category" name="category" onchange="getCourses();">
-                                    <option>--Select Category--</option>
-                                    <option value="beginner">Beginner</option>
-                                    <option value="intermediate">Intermediate</option>
-                                    <option value="professional">Professional</option>
-                                </select>
-                            </div>
-                            <br />
-                        </div>
-                        <br />*@
                         
                         <div class="form-group">
                             <label for="demo-cs-multiselect" class="col-sm-2 control-label text-default">Courses</label>
                             <div class="col-sm-10" id="courses-select-div">
-                                <select id="demo-cs-multiselect" data-placeholder="Choose courses..." multiple tabindex="4">
+                                <select id="demo-cs-multiselect" data-placeholder="Choose courses..." multiple tabindex="4" required="required">
                                     <option value="System Administration">System Administration</option>
                                     <option value="Web Design">Web Design</option>
                                     <option value="Oracle 11g">Oracle 11g</option>
@@ -256,17 +243,17 @@
                             </div>
                             <br />
                         </div>
-                        <br/>
+                        <br />
                         
                         <div class="form-group">
                             <label for="date" class="col-sm-2 control-label text-default">Start up</label>
                             <div class="col-sm-10">
-                                <input class="form-control" placeholder="Preferred Startup date (specify)" type="text" id="date" name="date">
+                                <input class="form-control" placeholder="Preferred Startup date (specify)" type="text" id="date" name="date" required="required">
                             </div>
                             <br />
                         </div>
                         <br />
-                        <input type="hidden" id="selected-courses" name="courses"/>
+                        <input type="hidden" id="selected-courses" name="courses" />
                         
                     }
                     <input type="submit" value="Submit" class="submit-button btn btn-default" onclick="submitForm()">
@@ -301,18 +288,48 @@
     <script src="~/Content/nifty/chosen/chosen.jquery.min.js"></script>
     <!--Form Component [ SAMPLE ]-->
     <script src="~/Content/nifty/demo/form-component.js"></script>
+
     <script type="text/javascript">
+
         function submitForm() {
+
             var options = $('#demo-cs-multiselect').find('option');
             var res = "";
-            options.each(function() {
+            options.each(function () {
                 if ($(this).is(':selected')) {
-                    res += $(this).attr('value') +", ";
+                    res += $(this).attr('value') + ", ";
                 }
             });
-            $('#selected-courses').val(res);
-            $('#regForm').submit();
+            var name = $('#name').val();
+            var phone = $('#phone').val();
+            var email = $('#email').val();
+            var address = $('#address').val();
+            var date = $('#date').val();
+            if (name === '' || name === undefined || name === null) {
+                alert('Please supply your name');
+            }
+            else if (phone === '' || phone === undefined || phone === null) {
+                alert('Please supply your phone number');
+            }
+            else if (email === '' || email === undefined || email === null) {
+                alert('Please supply your mail');
+            }
+            else if (address === '' || address === undefined || address === null) {
+                alert('Please supply your address');
+            }
+            else if (res === '' || res === undefined || res === null) {
+                alert('You have not selected any course!');
+            }
+            else if (date === '' || date === undefined || date === null) {
+                alert('Please supply your your preferred startup date');
+            } else {
+                $('#selected-courses').val(res);
+                $('#regForm').submit();
+            }
+            
+
+
         }
-        
+
     </script>
 }

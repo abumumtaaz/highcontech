@@ -93,6 +93,6 @@ F:\Javaclass2\HighcontechWeb\TestingGear\bin\DotNetOpenAuth.OAuth.Consumer.xml
 F:\Javaclass2\HighcontechWeb\TestingGear\bin\DotNetOpenAuth.OAuth.xml
 F:\Javaclass2\HighcontechWeb\TestingGear\bin\DotNetOpenAuth.OpenId.xml
 F:\Javaclass2\HighcontechWeb\TestingGear\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
-F:\Javaclass2\HighcontechWeb\TestingGear\obj\Debug\TestingGear.csprojResolveAssemblyReference.cache
 F:\Javaclass2\HighcontechWeb\TestingGear\obj\Debug\TestingGear.dll
 F:\Javaclass2\HighcontechWeb\TestingGear\obj\Debug\TestingGear.pdb
+F:\Javaclass2\HighcontechWeb\TestingGear\obj\Debug\TestingGear.csprojResolveAssemblyReference.cache

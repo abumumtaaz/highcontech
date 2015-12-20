@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Net;
 using System.Net.Mail;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace TestingGear.Controllers
@@ -32,26 +33,41 @@ namespace TestingGear.Controllers
         }
 
         [HttpPost]
-        public ActionResult Contact(string name, string uEmail, string subject, string message)
+        public async Task<ActionResult> Contact(string name, string uEmail, string subject, string message)
         {
             try
             {
                 var from = ConfigurationManager.AppSettings.Get("UserID");
-                var password = ConfigurationManager.AppSettings.Get("Password");
-                using (var email = new MailMessage(from, "yusuf.oguntola@gmail.com"))
+                using (var email = new MailMessage(from, "highcontech@gmail.com"))
                 {
                     email.Subject = "Contact - " + subject;
-                    email.Body = name + " sent a message from within the ganaf website. \nMessage Content: \n" + message + "\n\nEmail Address: " + uEmail;
+                    email.Body = name + " sent a message from within the highcontech website. \nMessage Content: \n" + message + "\n\nEmail Address: " + uEmail;
                     email.IsBodyHtml = false;
-                    var smtp = new SmtpClient
+                    var smtp = new SmtpClient();
+                    await smtp.SendMailAsync(email);
+
+                    
+                    var email2 = new MailMessage("highcontech@gmail.com", uEmail);
+                    var smtp2 = new SmtpClient
                     {
                         Host = "smtp.gmail.com",
                         EnableSsl = true
                     };
-                    var networkCredential = new NetworkCredential(from, password);
-                    smtp.Credentials = networkCredential;
-                    smtp.Port = 587;
-                    smtp.Send(email);
+
+                    var highconPassword = ConfigurationManager.AppSettings.Get("HighconPassword");
+                    var networkCredential2 = new NetworkCredential("highcontech@gmail.com", highconPassword);
+                    smtp2.Credentials = networkCredential2;
+                    smtp2.Port = 587;
+                    email2.Subject = "Highcon Technologies";
+                    email2.Body =
+                        "Thank you for contacting us at Highcon Technologies.\n" +
+                        "We have received your request and I want to asure you that necessary " +
+                        "actions would be taken as fast as possible, so you may not need to " +
+                        "resend this.\nYou would be contacted if need be as soon as possible.\nThank You.\n\n-------------" +
+                        "\nBest Regards;\nHighconTech team.";
+                    email2.IsBodyHtml = false;
+                    await smtp2.SendMailAsync(email2);
+
                     ViewBag.Status = "SUCCESS";
                     ViewBag.StatusMessage = "Message successfully sent";
 
