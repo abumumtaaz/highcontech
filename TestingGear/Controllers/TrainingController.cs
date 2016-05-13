@@ -52,6 +52,42 @@ namespace TestingGear.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult CodeTrain2()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> CodeTrain2(string name, string mail, string phone, string address,
+            string courses)
+        {
+            try
+            {
+                var from = ConfigurationManager.AppSettings.Get("UserID");
+                using (var email = new MailMessage(from, "yusuf.oguntola@gmail.com"))
+                {
+                    email.Subject = "Training Reg";
+                    const string extra = "An application for the training has been submitted from Highcontech.com. \nRegistration Details: \n\n";
+                    email.Body =
+                        string.Format(
+                            "{0}Full Name: {1}\nPhone: {2}\nEmail: {3}\nAddress: {4}\nCourses: {5}",
+                            extra, name, phone, mail, address, courses);
+                    email.IsBodyHtml = false;
+                    var smtp = new SmtpClient();
+                    await smtp.SendMailAsync(email);
+                    ViewBag.Status = "SUCCESS";
+                    ViewBag.StatusMessage = "Message successfully sent";
+                }
+            }
+            catch (Exception)
+            {
+                ViewBag.Status = "ERROR";
+                ViewBag.StatusMessage = "Something went wrong. Please retry.";
+            }
+            return View();
+        }
+
         public PartialViewResult GetCourses(string category)
         {
             List<string> courses = new List<string>();

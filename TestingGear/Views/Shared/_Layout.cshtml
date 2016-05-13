@@ -5,13 +5,12 @@
 <!--<![endif]-->
 
 
-<!-- Mirrored from htmlcoder.me/preview/the_project/v.1.0/template/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 06 Jun 2015 23:27:01 GMT -->
 <head>
     <meta name="google-site-verification" content="VzcDVv-a5QTeAKP61Nah85NWwfjKjaQengcP4lgYFKE" />
     <meta charset="utf-8">
     <title>HighconTech</title>
-    <meta name="description" content="The Project a Bootstrap-based, Responsive HTML5 Template">
-    <meta name="author" content="htmlcoder.me">
+    <meta name="description" content="Highcon Technologies Nig. Ltd. Ogbomoso">
+    <meta name="author" content="yusuf.oguntola@gmail.com">
 
     <!-- Mobile Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -192,16 +191,15 @@
                                 <!-- logo -->
                                 <div id="logo" class="logo">
                                     <a href="/Home/Index">
-                                        <span>Highcon</span>
-
+                                        <img id="logo_img" src="~/Content/images/our_logo.jpg" alt="The Project">Highcon Tech
                                     </a>
                                 </div>
 
                                 <!-- name-and-slogan -->
-                                <div class="site-slogan">
-                                    Technologies
+                                @*<div class="site-slogan">
+                                    Highcon Tech
 								
-                                </div>
+                                </div>*@
 
                             </div>
                             <!-- header-left end -->
@@ -250,7 +248,6 @@
                                                         <ul class="dropdown-menu">
                                                             <li><a href="/Home/Services">Services</a></li>
                                                             <li><a href="/Home/Products">Products</a></li>
-                                                            <li><a href="/Training/Lau2015">Training 2015</a></li>
                                                         </ul>
                                                     </li>
                                                     <!-- mega-menu end -->
@@ -259,6 +256,10 @@
                                                     </li>
                                                     <li class="">
                                                         <a class="" href="/Home/Contact">Contact</a>
+                                                    </li>
+                                                    <li class="">
+                                                        
+                                                        <a class="" href="@Url.Action("CodeTrain2", "Training")">CodeTrain II</a>
                                                     </li>
                                                 </ul>
                                                 <!-- main-menu end -->
@@ -574,57 +575,6 @@
     <script type="text/javascript" src="~/Content/js/custom.js"></script>
 
     @Scripts.Render("~/bundles/jquery")
-    <!-- Color Switcher (Remove these lines) -->
-    <script type="text/javascript" src="~/Content/style-switcher/style-switcher.js"></script>
-    <div class="style-switcher closed">
-        <div class="header">
-            <a class="trigger" href="#"><i class="icon-cog-1"></i></a>
-            <h2>Style Switcher</h2>
-        </div>
-        <div class="clearfix body">
-            <h3>Predifined Colors</h3>
-            <ul class="styleChange">
-                <li class="light-blue selected" data-style="light_blue" title="light_blue"></li>
-                <li class="blue" data-style="blue" title="blue"></li>
-                <li class="green" data-style="green" title="green"></li>
-                <li class="dark-cyan" data-style="dark_cyan" title="dark_cyan"></li>
-                <li class="brown" data-style="brown" title="brown"></li>
-                <li class="dark-red" data-style="dark_red" title="dark_red"></li>
-                <li class="gold" data-style="gold" title="gold"></li>
-                <li class="gray" data-style="gray" title="gray"></li>
-                <li class="cool-green" data-style="cool_green" title="cool_green"></li>
-                <li class="pink" data-style="pink" title="pink"></li>
-                <li class="purple" data-style="purple" title="purple"></li>
-                <li class="orange" data-style="orange" title="orange"></li>
-                <li class="red" data-style="red" title="red"></li>
-                <li class="vivid-red" data-style="vivid_red" title="vivid_red"></li>
-            </ul>
-            <hr>
-            <h3>Layout Mode</h3>
-            <ul class="layoutChange">
-                <li class="wide selected" data-style="wide" title="wide"><i class="fa fa-arrow-left pr-10"></i>Wide<i class="fa fa-arrow-right pl-10"></i></li>
-                <li class="boxed" data-style="boxed" title="boxed"><i class="fa fa-arrow-right pr-5"></i>Boxed<i class="fa fa-arrow-left pl-5"></i></li>
-            </ul>
-            <h3>Patterns</h3>
-            <ul class="patternChange">
-                <li class="pattern-0" data-style="pattern-0" title="white background"></li>
-                <li class="pattern-1" data-style="pattern-1" title="pattern-1"></li>
-                <li class="pattern-2" data-style="pattern-2" title="pattern-2"></li>
-                <li class="pattern-3" data-style="pattern-3" title="pattern-3"></li>
-                <li class="pattern-4" data-style="pattern-4" title="pattern-4"></li>
-                <li class="pattern-5" data-style="pattern-5" title="pattern-5"></li>
-                <li class="pattern-6" data-style="pattern-6" title="pattern-6"></li>
-                <li class="pattern-7" data-style="pattern-7" title="pattern-7"></li>
-                <li class="pattern-8" data-style="pattern-8" title="pattern-8"></li>
-                <li class="pattern-9" data-style="pattern-9" title="pattern-9"></li>
-            </ul>
-            <ul class="resetAll">
-                <li class="btn btn-default btn-sm" title="Reset"><a href="http://htmlcoder.me/preview/the_project/v.1.0/index.html">Demos</a></li>
-                <li class="btn btn-dark btn-sm" title="Reset">Reset All</li>
-            </ul>
-        </div>
-    </div>
-    <!-- Color Switcher End -->
 
     <!-- Pure chat script -->
 @*<script type='text/javascript' data-cfasync='false'>
@@ -658,5 +608,4 @@
     @RenderSection("scripts", required: false)
 </body>
 
-<!-- Mirrored from htmlcoder.me/preview/the_project/v.1.0/template/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 06 Jun 2015 23:43:34 GMT -->
 </html>
